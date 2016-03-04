@@ -3,8 +3,10 @@ import os
 import pygame
 from pygame.locals import *
 
+ASSETS_DIR = 'images'
 WINDOW_SIZE = (400, 400)
 BLACK = (  0,   0,   0)
+FPS = 59.37
 
 class Window(object):
     def __init__(self):
