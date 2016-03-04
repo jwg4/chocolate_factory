@@ -9,6 +9,9 @@ BLACK = (  0,   0,   0)
 FPS = 59.37
 
 class Window(object):
+    locations = [(0,0), (100, 50), (150, 50), (200, 50), (300, 0)]
+    x = 0
+
     def __init__(self):
         self.window = pygame.display.set_mode(WINDOW_SIZE)
         self.clock = pygame.time.Clock()
@@ -35,7 +38,7 @@ class Window(object):
 
     def draw_character(self):
         image = pygame.image.load(os.path.join(ASSETS_DIR, "noam.png"))
-        self.window.blit(image, (self.x, 0))
+        self.window.blit(image, self.locations[self.x])
 
     def listen_for_input(self):
         # Discrete key presses
