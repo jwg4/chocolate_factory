@@ -44,10 +44,10 @@ class Window(object):
         # Discrete key presses
         for event in pygame.event.get():
             if (event.type == pygame.KEYDOWN):
-                if (event.key == pygame.K_LEFT):
+                if (event.key == pygame.K_DOWN):
                     if self.x > 0:
                         self.x = self.x - 1
-                elif (event.key == pygame.K_RIGHT):
-                    if self.x < 400:
+                elif (event.key == pygame.K_UP):
+                    if self.x < 4:
                         self.x = self.x + 1
                 break
