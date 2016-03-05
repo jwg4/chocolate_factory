@@ -6,6 +6,7 @@ from pygame.locals import *
 import dimensions
 from character import Noam, Rosa
 from zone import Conveyor
+from chocolate import Bar
 
 ASSETS_DIR = 'images'
 BLACK = (  0,   0,   0)
@@ -20,6 +21,7 @@ class Window(object):
         self.character1 = Noam(self.window)
         self.character2 = Rosa(self.window)
         self.conveyor1 = Conveyor(250, 105, None, -1)
+        self.conveyor1.add_choc(Bar())
 
         self.init()
 
