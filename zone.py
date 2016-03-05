@@ -42,7 +42,7 @@ class DropZone(Zone):
 
     def add_choc(self, choc):
         if self.character.position == self.position:
-            self.catching[10].add(choc)
+            self.catching[9].add(choc)
         else:
             self.dropping.append(choc)
         super(DropZone, self).add_choc(choc)
