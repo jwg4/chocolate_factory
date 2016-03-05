@@ -4,7 +4,7 @@ import pygame
 from pygame.locals import *
 
 import dimensions
-from character import Noam
+from character import Noam, Rosa
 
 ASSETS_DIR = 'images'
 BLACK = (  0,   0,   0)
@@ -16,7 +16,8 @@ class Window(object):
         self.window = pygame.display.set_mode(dimensions.WINDOW_SIZE)
         self.clock = pygame.time.Clock()
         self.background = pygame.image.load(os.path.join(ASSETS_DIR, "background.png"))
-        self.character = Noam(self.window)
+        self.character1 = Rosa(self.window)
+        self.character2 = Noam(self.window)
 
         self.init()
 
@@ -36,7 +37,8 @@ class Window(object):
     def draw(self):
         self.window.blit(self.background, (0,0))
         self.draw_conveyor()
-        self.character.draw()
+        self.character1.draw()
+        self.character2.draw()
 
     def draw_conveyor(self):
         image = pygame.image.load(os.path.join(ASSETS_DIR, "conveyor.png"))
@@ -50,8 +52,12 @@ class Window(object):
         # Discrete key presses
         for event in pygame.event.get():
             if (event.type == pygame.KEYDOWN):
-                if (event.key == pygame.K_DOWN):
-                    self.character.down()
+                if (event.key == pygame.K_z):
+                    self.character1.down()
+                elif (event.key == pygame.K_a):
+                    self.character1.up()
+                elif (event.key == pygame.K_DOWN):
+                    self.character2.down()
                 elif (event.key == pygame.K_UP):
-                    self.character.up()
+                    self.character2.up()
                 break

@@ -27,4 +27,10 @@ class Noam(Character):
     position = 0
     image_location = "characters/noam.png"
 
+class Rosa(Character):
+    locations = dimensions.CHARACTER_B
+    position = 0
+    image_location = "characters/noam.png"
+
+
 
