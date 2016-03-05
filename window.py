@@ -39,7 +39,7 @@ class Window(object):
         self.draw_character()
 
     def draw_character(self):
-        image = pygame.image.load(os.path.join(ASSETS_DIR, "noam.png"))
+        image = pygame.image.load(os.path.join(ASSETS_DIR, "characters/noam.png"))
         self.window.blit(image, self.locations[self.x])
 
     def listen_for_input(self):
