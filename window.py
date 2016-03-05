@@ -32,10 +32,14 @@ class Window(object):
     # THE WHILE LOOP
     def main(self):
         self.clock.tick(FPS)
+        self.update()
 
         self.listen_for_input()
 
         self.draw()
+
+    def update(self):
+        self.conveyor1.update()
 
     # Drawing
     def draw(self):

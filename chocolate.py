@@ -27,3 +27,6 @@ class Bar(object):
     def set_position(self, x, y):
         self._x = x
         self._y = y
+
+    def get_position(self):
+        return (self._x, self._y)

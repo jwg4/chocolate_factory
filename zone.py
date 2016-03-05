@@ -19,3 +19,8 @@ class Conveyor(Zone):
     def __init__(self, start_x, start_y, direction, hand_off):
         super(Conveyor, self).__init__(start_x, start_y, hand_off)
         self.direction = direction
+
+    def update(self):
+        for choc in self.chocolates:
+            position = choc.get_position()
+            choc.set_position(position[0] + self.direction, position[1])
