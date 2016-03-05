@@ -5,7 +5,7 @@ from pygame.locals import *
 
 import dimensions
 from character import Noam, Rosa
-from zone import Conveyor
+from zone import Conveyor, LoadingBay, DropZone
 from chocolate import Bar
 
 ASSETS_DIR = 'images'
@@ -20,8 +20,12 @@ class Window(object):
         self.background = pygame.image.load(os.path.join(ASSETS_DIR, "background.png"))
         self.character1 = Noam(self.window)
         self.character2 = Rosa(self.window)
-        self.conveyor1 = Conveyor(660, 55, -1, None)
+        self.loading_bay = LoadingBay()
+        self.drop_zone = DropZone(self.character1, 2, 300, 55, self.loading_bay)
+        self.conveyor1 = Conveyor(660, 55, -1, self.drop_zone)
         self.conveyor1.add_choc(Bar())
+
+        self.zones = [self.loading_bay, self.drop_zone, self.conveyor1]
 
         self.init()
 
@@ -39,7 +43,8 @@ class Window(object):
         self.draw()
 
     def update(self):
-        self.conveyor1.update()
+        for zone in self.zones:
+            zone.update()
 
     # Drawing
     def draw(self):
@@ -47,7 +52,8 @@ class Window(object):
         self.draw_conveyor()
         self.character1.draw()
         self.character2.draw()
-        self.conveyor1.draw(self.window)
+        for zone in self.zones:
+            zone.draw(self.window)
 
     def draw_conveyor(self):
         image = pygame.image.load(os.path.join(ASSETS_DIR, "conveyor.png"))
