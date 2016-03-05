@@ -8,7 +8,7 @@ class Zone(object):
         
     def add_choc(self, choc):
         choc.set_position(self.start_x, self.start_y)
-        chocolates.add(choc)
+        self.chocolates.append(choc)
 
     def draw(self, window):
         for choc in self.chocolates:
