@@ -12,3 +12,11 @@ CHARACTER_B = [
     (750, 350),
     (750, 210)
 ]
+
+CHOCOLATE_SIZE = (50, 50)
+
+CONVEYOR_X = (290, 710)
+
+CONVEYOR_Y = [
+   105, 175, 245, 315, 385
+]
