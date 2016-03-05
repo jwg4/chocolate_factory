@@ -10,7 +10,7 @@ BLACK = (  0,   0,   0)
 FPS = 59.37
 
 class Window(object):
-    locations = [(0,0), (100, 50), (150, 50), (200, 50), (300, 0)]
+    locations = dimensions.CHARACTER_A
     x = 0
 
     def __init__(self):
@@ -50,6 +50,6 @@ class Window(object):
                     if self.x > 0:
                         self.x = self.x - 1
                 elif (event.key == pygame.K_UP):
-                    if self.x < 4:
+                    if self.x < 2:
                         self.x = self.x + 1
                 break
