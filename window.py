@@ -3,8 +3,9 @@ import os
 import pygame
 from pygame.locals import *
 
+import dimensions
+
 ASSETS_DIR = 'images'
-WINDOW_SIZE = (400, 400)
 BLACK = (  0,   0,   0)
 FPS = 59.37
 
@@ -13,8 +14,9 @@ class Window(object):
     x = 0
 
     def __init__(self):
-        self.window = pygame.display.set_mode(WINDOW_SIZE)
+        self.window = pygame.display.set_mode(dimensions.WINDOW_SIZE)
         self.clock = pygame.time.Clock()
+        self.background = pygame.image.load(os.path.join(ASSETS_DIR, "background.png"))
 
         self.init()
         self.x = 0
@@ -33,7 +35,7 @@ class Window(object):
 
     # Drawing
     def draw(self):
-        self.window.fill(BLACK)
+        self.window.blit(self.background, (0,0))
         self.draw_character()
 
     def draw_character(self):
