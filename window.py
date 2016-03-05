@@ -36,7 +36,16 @@ class Window(object):
     # Drawing
     def draw(self):
         self.window.blit(self.background, (0,0))
+        self.draw_conveyor()
         self.draw_character()
+
+    def draw_conveyor(self):
+        image = pygame.image.load(os.path.join(ASSETS_DIR, "conveyor.png"))
+        for i in range(5):
+            for j in range(4):
+                x = 300 + j * 100
+                y = 105 + i * 70
+                self.window.blit(image, (x, y))
 
     def draw_character(self):
         image = pygame.image.load(os.path.join(ASSETS_DIR, "characters/noam.png"))
