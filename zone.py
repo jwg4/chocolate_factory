@@ -27,7 +27,10 @@ class Conveyor(Zone):
     def update(self):
         for choc in self.chocolates:
             position = choc.get_position()
-            choc.set_position(position[0] + self.direction, position[1])
+            if (position[0] - self.start_x) * self.direction > 500:
+                self.remove_choc(choc)
+            else:
+                choc.set_position(position[0] + self.direction, position[1])
 
 class DropZone(Zone):
     def __init__(self, character, position, start_x, start_y, hand_off):
