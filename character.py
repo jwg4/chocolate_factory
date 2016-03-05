@@ -30,7 +30,7 @@ class Noam(Character):
 class Rosa(Character):
     locations = dimensions.CHARACTER_B
     position = 0
-    image_location = "characters/noam.png"
+    image_location = "characters/rosa.png"
 
 
 
