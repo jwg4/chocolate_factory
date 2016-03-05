@@ -20,7 +20,7 @@ class Window(object):
         self.background = pygame.image.load(os.path.join(ASSETS_DIR, "background.png"))
         self.character1 = Noam(self.window)
         self.character2 = Rosa(self.window)
-        self.conveyor1 = Conveyor(250, 105, None, -1)
+        self.conveyor1 = Conveyor(660, 55, None, -1)
         self.conveyor1.add_choc(Bar())
 
         self.init()
