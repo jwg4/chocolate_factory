@@ -21,7 +21,7 @@ class Window(object):
         self.character1 = Noam(self.window)
         self.character2 = Rosa(self.window)
         self.loading_bay = LoadingBay()
-        self.drop_zone = DropZone(self.character1, 2, 300, 55, self.loading_bay)
+        self.drop_zone = DropZone(self.character1, 2, 250, 55, self.loading_bay)
         self.conveyor1 = Conveyor(660, 55, -1, self.drop_zone)
         self.conveyor1.add_choc(Bar())
 
