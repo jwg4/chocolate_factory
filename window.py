@@ -5,6 +5,7 @@ from pygame.locals import *
 
 import dimensions
 from character import Noam, Rosa
+from zone import Conveyor
 
 ASSETS_DIR = 'images'
 BLACK = (  0,   0,   0)
@@ -18,6 +19,7 @@ class Window(object):
         self.background = pygame.image.load(os.path.join(ASSETS_DIR, "background.png"))
         self.character1 = Noam(self.window)
         self.character2 = Rosa(self.window)
+        self.conveyor1 = Conveyor(250, 105, None, -1)
 
         self.init()
 
@@ -39,6 +41,7 @@ class Window(object):
         self.draw_conveyor()
         self.character1.draw()
         self.character2.draw()
+        self.conveyor1.draw(self.window)
 
     def draw_conveyor(self):
         image = pygame.image.load(os.path.join(ASSETS_DIR, "conveyor.png"))
