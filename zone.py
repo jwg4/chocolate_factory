@@ -73,6 +73,8 @@ class StartMachine(Zone):
 
     def __init__(self, handoff):
         super(StartMachine, self).__init__(1000, 400, handoff)
+        self.add_choc(Bar())
+        self.countdown = 150
 
     def update(self):
         if not self.chocolates:
