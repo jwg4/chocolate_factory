@@ -28,14 +28,17 @@ class Window(object):
     def setup_zones(self):
         loading_bay = LoadingBay()
         yield loading_bay
-        drop_zone1 = DropZone(self.character1, 2, 250, 55, loading_bay)
-        yield drop_zone1
-        conveyor1 = Conveyor(660, 55, -1, drop_zone1)
-        yield conveyor1
-        drop_zone2 = DropZone(self.character2, 2, 700, 125, conveyor1)
-        yield drop_zone2
-        conveyor2 = Conveyor(290, 125, 1, drop_zone2)
-        yield conveyor2
+        previous = loading_bay
+        for x in range(3):
+            drop_zone1 = DropZone(self.character1, 2 - x, 250, 55 + x * 140, previous)
+            yield drop_zone1
+            conveyor1 = Conveyor(660, 55 + x * 140, -1, drop_zone1)
+            yield conveyor1
+            drop_zone2 = DropZone(self.character2, 2 - x, 700, 125 + x * 140, conveyor1)
+            yield drop_zone2
+            conveyor2 = Conveyor(290, 125 + x * 140, 1, drop_zone2)
+            previous = conveyor2
+            yield conveyor2
 
     def init(self):
         # Draw
