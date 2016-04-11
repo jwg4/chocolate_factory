@@ -1,3 +1,5 @@
+import random
+
 from chocolate import Bar
 
 class Zone(object):
@@ -75,7 +77,7 @@ class StartMachine(Zone):
     def update(self):
         if not self.chocolates:
             self.add_choc(Bar())
-            self.countdown = 20
+            self.countdown = 100 * random.randint(0, 12) + 200
         elif self.countdown == 0:
             self.remove_choc()
         else:
