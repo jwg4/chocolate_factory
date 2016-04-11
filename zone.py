@@ -1,3 +1,5 @@
+from chocolate import Bar
+
 class Zone(object):
 
     def __init__(self, start_x, start_y, hand_off):
@@ -10,7 +12,9 @@ class Zone(object):
         choc.set_position(self.start_x, self.start_y)
         self.chocolates.append(choc)
 
-    def remove_choc(self, choc):
+    def remove_choc(self, choc=None):
+        if choc is None:
+            choc = self.chocolates[0]
         self.chocolates.remove(choc)
         self.hand_off.add_choc(choc)
 
@@ -61,3 +65,18 @@ class LoadingBay(Zone):
 
     def update(self):
         pass
+
+class StartMachine(Zone):
+    countdown = 0
+
+    def __init__(self, handoff):
+        super(StartMachine, self).__init__(700, 400, handoff)
+
+    def update(self):
+        if not self.chocolates:
+            self.add_choc(Bar())
+            self.countdown = 20
+        elif self.countdown == 0:
+            self.remove_choc()
+        else:
+            self.countdown = self.countdown - 1
