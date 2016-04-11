@@ -21,11 +21,13 @@ class Window(object):
         self.character1 = Noam(self.window)
         self.character2 = Rosa(self.window)
         self.loading_bay = LoadingBay()
-        self.drop_zone = DropZone(self.character1, 2, 250, 55, self.loading_bay)
-        self.conveyor1 = Conveyor(660, 55, -1, self.drop_zone)
-        self.conveyor1.add_choc(Bar())
+        self.drop_zone1 = DropZone(self.character1, 2, 250, 55, self.loading_bay)
+        self.conveyor1 = Conveyor(660, 55, -1, self.drop_zone1)
+        self.drop_zone2 = DropZone(self.character2, 2, 700, 125, self.conveyor1)
+        self.conveyor2 = Conveyor(290, 125, 1, self.drop_zone2)
+        self.conveyor2.add_choc(Bar())
 
-        self.zones = [self.loading_bay, self.drop_zone, self.conveyor1]
+        self.zones = [self.loading_bay, self.drop_zone1, self.conveyor1, self.drop_zone2, self.conveyor2]
 
         self.init()
 
