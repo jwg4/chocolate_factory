@@ -20,16 +20,22 @@ class Window(object):
         self.background = pygame.image.load(os.path.join(ASSETS_DIR, "background.png"))
         self.character1 = Noam(self.window)
         self.character2 = Rosa(self.window)
-        self.loading_bay = LoadingBay()
-        self.drop_zone1 = DropZone(self.character1, 2, 250, 55, self.loading_bay)
-        self.conveyor1 = Conveyor(660, 55, -1, self.drop_zone1)
-        self.drop_zone2 = DropZone(self.character2, 2, 700, 125, self.conveyor1)
-        self.conveyor2 = Conveyor(290, 125, 1, self.drop_zone2)
-        self.conveyor2.add_choc(Bar())
-
-        self.zones = [self.loading_bay, self.drop_zone1, self.conveyor1, self.drop_zone2, self.conveyor2]
+        self.zones = list(self.setup_zones())
+        self.zones[-1].add_choc(Bar())
 
         self.init()
+
+    def setup_zones(self):
+        loading_bay = LoadingBay()
+        yield loading_bay
+        drop_zone1 = DropZone(self.character1, 2, 250, 55, loading_bay)
+        yield drop_zone1
+        conveyor1 = Conveyor(660, 55, -1, drop_zone1)
+        yield conveyor1
+        drop_zone2 = DropZone(self.character2, 2, 700, 125, conveyor1)
+        yield drop_zone2
+        conveyor2 = Conveyor(290, 125, 1, drop_zone2)
+        yield conveyor2
 
     def init(self):
         # Draw
