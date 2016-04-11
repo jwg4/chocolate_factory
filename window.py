@@ -33,13 +33,15 @@ class Window(object):
             yield drop_zone1
             conveyor1 = Conveyor(660, 55 + x * 140, -1, drop_zone1)
             yield conveyor1
-            drop_zone2 = DropZone(self.character2, 2 - x, 700, 125 + x * 140, conveyor1)
-            yield drop_zone2
             if x < 2:
+                drop_zone2 = DropZone(self.character2, 2 - x, 700, 125 + x * 140, conveyor1)
+                yield drop_zone2
                 conveyor2 = Conveyor(290, 125 + x * 140, 1, drop_zone2)
                 previous = conveyor2
                 yield conveyor2
             else:
+                drop_zone2 = DropZone(self.character2, 2 - x, 900, 125 + x * 140, conveyor1)
+                yield drop_zone2
                 yield StartMachine(drop_zone2)
 
     def init(self):
