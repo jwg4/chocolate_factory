@@ -17,7 +17,12 @@ class Bar(object):
             pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_0.png")),
             pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_1.png")),
             pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_2.png")),
+            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_9.png")),
         ]
+
+    def set_state(self, state):
+        if state == 'BREAKING':
+            self.state = 3
 
     def draw(self, window):
         current_state = self.states[self.state]
