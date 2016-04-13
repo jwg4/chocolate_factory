@@ -1,6 +1,7 @@
 import random
 
 from chocolate import Bar
+from dimensions import WINDOW_HEIGHT, CHOC_HEIGHT
 
 class Zone(object):
 
@@ -60,7 +61,7 @@ class DropZone(Zone):
         self.catching = self.catching[1:] + [set()]   # why?
         for choc in self.dropping:
             position = choc.get_position()
-            if position[1] < 450:
+            if position[1] < WINDOW_HEIGHT - CHOC_HEIGHT:
                 choc.set_position(position[0], position[1] + 1)
             else:
                 choc.set_state('BREAKING')
