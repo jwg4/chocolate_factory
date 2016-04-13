@@ -74,8 +74,8 @@ class Window(object):
         image = pygame.image.load(os.path.join(ASSETS_DIR, "conveyor.png"))
         for i in range(5):
             for j in range(4):
-                x = 300 + j * 100
-                y = 105 + i * 70
+                x = CONVEYOR_START + j * CONVEYOR_SEGMENT_LENGTH
+                y = 105 + i * CONVEYOR_Y_SPACING
                 self.window.blit(image, (x, y))
 
     def listen_for_input(self):
