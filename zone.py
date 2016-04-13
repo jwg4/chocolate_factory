@@ -58,7 +58,7 @@ class DropZone(Zone):
     def update(self):
         for choc in self.catching[0]:
             self.remove_choc(choc)
-        self.catching = self.catching[1:] + [set()]   # why?
+        self.catching = self.catching[1:] + [set()]
         for choc in self.dropping:
             position = choc.get_position()
             if position[1] < WINDOW_HEIGHT - CHOC_HEIGHT:
