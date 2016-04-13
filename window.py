@@ -29,18 +29,20 @@ class Window(object):
         yield loading_bay
         previous = loading_bay
         for x in range(3):
-            drop_zone1 = DropZone(self.character1, 2 - x, 250, 55 + x * 140, previous)
+            height = CONVEYOR_Y_SPRITE_START + 2 * x * CONVEYOR_Y_SPACING
+            drop_zone1 = DropZone(self.character1, 2 - x, CONVEYOR_DROP_LEFT, height, previous)
             yield drop_zone1
-            conveyor1 = Conveyor(660, 55 + x * 140, -1, drop_zone1)
+            conveyor1 = Conveyor(CONVEYOR_SPRITE_END, height, -1, drop_zone1)
             yield conveyor1
+            height = CONVEYOR_Y_SPRITE_START + (2 * x + 1) * CONVEYOR_Y_SPACING
             if x < 2:
-                drop_zone2 = DropZone(self.character2, 2 - x, 700, 125 + x * 140, conveyor1)
+                drop_zone2 = DropZone(self.character2, 2 - x, CONVEYOR_DROP_RIGHT, height, conveyor1)
                 yield drop_zone2
-                conveyor2 = Conveyor(290, 125 + x * 140, 1, drop_zone2)
+                conveyor2 = Conveyor(CONVEYOR_SPACE_START, height, 1, drop_zone2)
                 previous = conveyor2
                 yield conveyor2
             else:
-                drop_zone2 = DropZone(self.character2, 2 - x, 900, 125 + x * 140, conveyor1)
+                drop_zone2 = DropZone(self.character2, 2 - x, START_CONVEYOR_DROP_X, height, conveyor1)
                 yield drop_zone2
                 yield StartMachine(drop_zone2)
 
@@ -75,7 +77,7 @@ class Window(object):
         for i in range(5):
             for j in range(4):
                 x = CONVEYOR_START + j * CONVEYOR_SEGMENT_LENGTH
-                y = 105 + i * CONVEYOR_Y_SPACING
+                y = CONVEYOR_Y_START + i * CONVEYOR_Y_SPACING
                 self.window.blit(image, (x, y))
 
     def listen_for_input(self):
