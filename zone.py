@@ -57,7 +57,7 @@ class DropZone(Zone):
     def update(self):
         for choc in self.catching[0]:
             self.remove_choc(choc)
-        self.catching = self.catching[1:] + [set()]
+        self.catching = self.catching[1:] + [set()]   # why?
         for choc in self.dropping:
             position = choc.get_position()
             if position[1] < 450:
