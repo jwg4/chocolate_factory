@@ -3,7 +3,7 @@ import os
 import pygame
 from pygame.locals import *
 
-import dimensions
+from dimensions import *
 from character import Noam, Rosa
 from zone import Conveyor, LoadingBay, DropZone, StartMachine
 from chocolate import Bar
@@ -15,7 +15,7 @@ FPS = 59.37
 class Window(object):
 
     def __init__(self):
-        self.window = pygame.display.set_mode(dimensions.WINDOW_SIZE)
+        self.window = pygame.display.set_mode(WINDOW_SIZE)
         self.clock = pygame.time.Clock()
         self.background = pygame.image.load(os.path.join(ASSETS_DIR, "background.png"))
         self.character1 = Noam(self.window)
