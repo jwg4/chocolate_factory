@@ -1,7 +1,7 @@
 import random
 
 from chocolate import Bar
-from dimensions import WINDOW_HEIGHT, CHOC_HEIGHT
+from dimensions import WINDOW_HEIGHT, CHOC_HEIGHT, CONVEYOR_LENGTH, WINDOW_WIDTH
 
 class Zone(object):
 
@@ -35,7 +35,7 @@ class Conveyor(Zone):
     def update(self):
         for choc in self.chocolates:
             position = choc.get_position()
-            if (position[0] - self.start_x) * self.direction > 400:
+            if (position[0] - self.start_x) * self.direction > CONVEYOR_LENGTH:
                 self.remove_choc(choc)
             else:
                 choc.set_position(position[0] + self.direction, position[1])
@@ -88,7 +88,7 @@ class StartMachine(Zone):
     countdown = 0
 
     def __init__(self, handoff):
-        super(StartMachine, self).__init__(1000, 400, handoff)
+        super(StartMachine, self).__init__(WINDOW_WIDTH, 400, handoff)
         self.add_choc(Bar())
         self.countdown = 150
 
