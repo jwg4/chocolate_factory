@@ -60,7 +60,14 @@ class DropZone(Zone):
         self.catching = self.catching[1:] + [set()]
         for choc in self.dropping:
             position = choc.get_position()
-            choc.set_position(position[0], position[1] + 1)
+            if position[1] < 450:
+                choc.set_position(position[0], position[1] + 1)
+            else:
+                choc.set_state('BREAKING')
+                if random.randint(0, 150) == 0:
+                    self.remove_choc(choc, discard=True)
+                    self.dropping.remove(choc)
+
 
 class LoadingBay(Zone):
     def __init__(self):
