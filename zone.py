@@ -14,11 +14,12 @@ class Zone(object):
         choc.set_position(self.start_x, self.start_y)
         self.chocolates.append(choc)
 
-    def remove_choc(self, choc=None):
+    def remove_choc(self, choc=None, discard=False):
         if choc is None:
             choc = self.chocolates[0]
         self.chocolates.remove(choc)
-        self.hand_off.add_choc(choc)
+        if discard == False:
+            self.hand_off.add_choc(choc)
 
     def draw(self, window):
         for choc in self.chocolates:
