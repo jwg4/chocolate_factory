@@ -72,9 +72,16 @@ class DropZone(Zone):
 class LoadingBay(Zone):
     def __init__(self):
         super(LoadingBay, self).__init__(100, 100, None)
+        self.positions = [ (0 + i * 50, 0 + j * 50) for i in range(4) for j in range(5) ]
 
     def update(self):
         pass
+
+    def add_choc(self, choc):
+        position = self.positions.pop()
+        choc.set_position(position[0], position[1])
+        self.chocolates.append(choc)
+
 
 class StartMachine(Zone):
     countdown = 0
