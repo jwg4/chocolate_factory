@@ -38,7 +38,7 @@ class Window(object):
             if x < 2:
                 drop_zone2 = DropZone(self.character2, 2 - x, CONVEYOR_DROP_RIGHT, height, conveyor1)
                 yield drop_zone2
-                conveyor2 = Conveyor(CONVEYOR_SPACE_START, height, 1, drop_zone2)
+                conveyor2 = Conveyor(CONVEYOR_SPACE_START, height, 1, drop_zone2, 1 - x)
                 previous = conveyor2
                 yield conveyor2
             else:

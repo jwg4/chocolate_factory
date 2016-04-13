@@ -23,6 +23,8 @@ class Bar(object):
     def set_state(self, state):
         if state == 'BREAKING':
             self.state = 3
+        else:
+            self.state = state
 
     def draw(self, window):
         current_state = self.states[self.state]

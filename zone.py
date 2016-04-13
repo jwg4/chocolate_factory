@@ -1,7 +1,7 @@
 import random
 
 from chocolate import Bar
-from dimensions import WINDOW_HEIGHT, WINDOW_WIDTH
+from dimensions import WINDOW_HEIGHT, WINDOW_WIDTH, WINDOW_X_MID
 from dimensions import CONVEYOR_LENGTH, CHOC_HEIGHT, CHOC_WIDTH
 from dimensions import START_CONVEYOR_LENGTH, START_CONVEYOR_HEIGHT
 
@@ -30,9 +30,10 @@ class Zone(object):
 
 
 class Conveyor(Zone):
-    def __init__(self, start_x, start_y, direction, hand_off):
+    def __init__(self, start_x, start_y, direction, hand_off, transition=None):
         super(Conveyor, self).__init__(start_x, start_y, hand_off)
         self.direction = direction
+        self.transition = transition
 
     def update(self):
         for choc in self.chocolates:
@@ -41,6 +42,8 @@ class Conveyor(Zone):
                 self.remove_choc(choc)
             else:
                 choc.set_position(position[0] + self.direction, position[1])
+                if self.transition == choc.state and position[0] == WINDOW_X_MID:
+                    choc.set_state(choc.state + 1)
 
 class DropZone(Zone):
     def __init__(self, character, position, start_x, start_y, hand_off):
