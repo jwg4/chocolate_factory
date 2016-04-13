@@ -1,7 +1,9 @@
 import random
 
 from chocolate import Bar
-from dimensions import WINDOW_HEIGHT, CHOC_HEIGHT, CONVEYOR_LENGTH, WINDOW_WIDTH, CHOC_WIDTH, START_CONVEYOR_LENGTH, START_CONVEYOR_HEIGHT
+from dimensions import WINDOW_HEIGHT, WINDOW_WIDTH
+from dimensions import CONVEYOR_LENGTH, CHOC_HEIGHT, CHOC_WIDTH
+from dimensions import START_CONVEYOR_LENGTH, START_CONVEYOR_HEIGHT
 
 class Zone(object):
 
