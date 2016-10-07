@@ -4,8 +4,10 @@ import pygame
 
 ASSETS_DIR = 'images'
 
+
 class Chocolate(object):
     pass
+
 
 class Bar(object):
     _x = 0

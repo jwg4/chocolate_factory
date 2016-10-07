@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import pygame
-from window import *
+from window import Window
 
 if __name__ == "__main__":
     # Initialise the game engine
