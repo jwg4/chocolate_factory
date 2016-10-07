@@ -17,12 +17,21 @@ class Window(object):
     def __init__(self):
         self.window = pygame.display.set_mode(WINDOW_SIZE)
         self.clock = pygame.time.Clock()
+        self.splash = pygame.image.load(os.path.join(ASSETS_DIR, "splash.png"))
         self.background = pygame.image.load(os.path.join(ASSETS_DIR, "background.png"))
         self.character1 = Noam(self.window)
         self.character2 = Rosa(self.window)
         self.zones = list(self.setup_zones())
 
-        self.init()
+        self.window.blit(self.splash, (0,0))
+        exit_splash = False
+        while not exit_splash:
+            for event in pygame.event.get():
+                if (event.type == pygame.KEYDOWN):
+                    if (event.key == pygame.K_SPACE):
+                        exit_splash = True
+
+        self.draw()
 
     def setup_zones(self):
         loading_bay = LoadingBay()
@@ -45,10 +54,6 @@ class Window(object):
                 drop_zone2 = DropZone(self.character2, 2 - x, START_CONVEYOR_DROP_X, height, conveyor1)
                 yield drop_zone2
                 yield StartMachine(drop_zone2)
-
-    def init(self):
-        # Draw
-        self.draw()
 
     # THE WHILE LOOP
     def main(self):
