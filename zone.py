@@ -69,7 +69,7 @@ class DropZone(Zone):
             if position[1] < WINDOW_HEIGHT - CHOC_HEIGHT:
                 choc.set_position(position[0], position[1] + 1)
             else:
-                choc.set_state('BREAKING')
+                choc.break_()
                 if random.randint(0, 150) == 0:
                     self.remove_choc(choc, discard=True)
                     self.dropping.remove(choc)

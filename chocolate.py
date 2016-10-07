@@ -19,6 +19,7 @@ class Bar(object):
             pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_2.png")),
             pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_9.png")),
         ]
+        self.crash = pygame.mixer.Sound('sounds/crash.wav')
 
     def set_state(self, state):
         if state == 'BREAKING':
@@ -37,3 +38,8 @@ class Bar(object):
 
     def get_position(self):
         return (self._x, self._y)
+
+    def break_(self):
+        if self.state != 'BREAKING':
+            self.crash.play()
+        self.set_state('BREAKING')
