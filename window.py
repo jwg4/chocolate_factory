@@ -24,6 +24,7 @@ class Window(object):
         self.zones = list(self.setup_zones())
 
         self.window.blit(self.splash, (0,0))
+        pygame.display.update()
         exit_splash = False
         while not exit_splash:
             for event in pygame.event.get():
