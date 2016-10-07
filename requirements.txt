@@ -1,1 +1,8 @@
-flake8
+argparse==1.2.1
+configparser==3.5.0
+enum34==1.1.6
+flake8==3.0.4
+mccabe==0.5.2
+pycodestyle==2.0.0
+pyflakes==1.2.3
+wsgiref==0.1.2
