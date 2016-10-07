@@ -6,13 +6,13 @@ drawing:
     - other chocolates
     - several frames for conveyor unit
     - truck
+    - splash screen
 layout:
     - make wider
     - conveyor for first coming out
 design:
     - telling off
     - crash
-    - splash screen
 sounds:
     - intro
     - crash
