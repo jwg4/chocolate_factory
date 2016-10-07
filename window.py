@@ -1,4 +1,5 @@
 import os
+import sys
 
 import pygame
 from pygame.locals import *
@@ -61,9 +62,24 @@ class Window(object):
         self.clock.tick(FPS)
         self.update()
 
+        self.listen_for_quit()
         self.listen_for_input()
 
         self.draw()
+
+    def listen_for_quit(self):
+        def quit():
+            pygame.quit()
+            sys.exit()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:   # Mouse
+                quit()
+            elif event.type == pygame.KEYUP:  # Keyboard
+                if (event.key == pygame.K_ESCAPE) or (event.key == pygame.K_q):
+                    quit()
+            # Return the event if not quitting
+            else:
+                pygame.event.post(event)
 
     def update(self):
         for zone in self.zones:

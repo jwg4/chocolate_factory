@@ -1,7 +1,6 @@
 coding:
     - animated sprites
     - truck
-    - exit
 cleanup:
     - make sure that assets only need to be loaded once
 drawing:
