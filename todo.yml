@@ -1,9 +1,11 @@
 coding:
     - animated sprites
     - truck
+    - egg chocolate
 cleanup:
     - make sure that assets only need to be loaded once
 drawing:
+    - broken kinder egg
     - other chocolates
     - several frames for conveyor unit
     - truck
