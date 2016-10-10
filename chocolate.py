@@ -33,7 +33,7 @@ class Chocolate(object):
         self.set_state('BREAKING')
 
 
-class Bar(object):
+class Bar(Chocolate):
     def __init__(self):
         self.state = 0
         self.states = [
