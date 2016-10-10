@@ -2,6 +2,7 @@ coding:
     - animated sprites
     - truck
     - egg chocolate
+    - lives
 cleanup:
     - make sure that assets only need to be loaded once
 drawing:
