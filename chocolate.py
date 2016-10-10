@@ -43,3 +43,15 @@ class Bar(Chocolate):
             pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_9.png")),
         ]
         self.crash = pygame.mixer.Sound('sounds/crash.wav')
+
+
+class Egg(Chocolate):
+    def __init__(self):
+        self.state = 0
+        self.states = [
+            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/egg_0.png")),
+            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/egg_1.png")),
+            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/egg_2.png")),
+            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_9.png")),
+        ]
+        self.crash = pygame.mixer.Sound('sounds/crash.wav')
