@@ -6,22 +6,8 @@ ASSETS_DIR = 'images'
 
 
 class Chocolate(object):
-    pass
-
-
-class Bar(object):
     _x = 0
     _y = 0
-
-    def __init__(self):
-        self.state = 0
-        self.states = [
-            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_0.png")),
-            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_1.png")),
-            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_2.png")),
-            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_9.png")),
-        ]
-        self.crash = pygame.mixer.Sound('sounds/crash.wav')
 
     def set_state(self, state):
         if state == 'BREAKING':
@@ -45,3 +31,15 @@ class Bar(object):
         if self.state != 'BREAKING':
             self.crash.play()
         self.set_state('BREAKING')
+
+
+class Bar(object):
+    def __init__(self):
+        self.state = 0
+        self.states = [
+            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_0.png")),
+            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_1.png")),
+            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_2.png")),
+            pygame.image.load(os.path.join(ASSETS_DIR, "chocolate/bar_9.png")),
+        ]
+        self.crash = pygame.mixer.Sound('sounds/crash.wav')
