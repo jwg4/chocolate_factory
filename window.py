@@ -2,12 +2,15 @@ import os
 import sys
 
 import pygame
-from pygame.locals import *
 
-from dimensions import *
+from dimensions import WINDOW_SIZE
+from dimensions import CONVEYOR_Y_SPRITE_START, CONVEYOR_Y_SPACING
+from dimensions import CONVEYOR_DROP_LEFT, CONVEYOR_DROP_RIGHT
+from dimensions import CONVEYOR_SPRITE_END, CONVEYOR_Y_START
+from dimensions import START_CONVEYOR_DROP_X, CONVEYOR_SPACE_START
+from dimensions import CONVEYOR_START, CONVEYOR_SEGMENT_LENGTH
 from character import Noam, Rosa
 from zone import Conveyor, LoadingBay, DropZone, StartMachine
-from chocolate import Bar
 
 ASSETS_DIR = 'images'
 BLACK = (  0,   0,   0)
