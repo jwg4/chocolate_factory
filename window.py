@@ -36,6 +36,7 @@ class Window(object):
                     if (event.key == pygame.K_SPACE):
                         exit_splash = True
 
+        self.paused_ = False
         self.draw()
 
     def setup_zones(self):
@@ -63,12 +64,13 @@ class Window(object):
     # THE WHILE LOOP
     def main(self):
         self.clock.tick(FPS)
-        self.update()
 
         self.listen_for_quit()
         self.listen_for_input()
 
-        self.draw()
+        if not self.paused_:
+            self.update()
+            self.draw()
 
     def listen_for_quit(self):
         def quit():
@@ -77,9 +79,10 @@ class Window(object):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:   # Mouse
                 quit()
-            elif event.type == pygame.KEYUP:  # Keyboard
-                if (event.key == pygame.K_ESCAPE) or (event.key == pygame.K_q):
+            elif event.type == pygame.KEYUP and ((event.key == pygame.K_ESCAPE) or (event.key == pygame.K_q)):
                     quit()
+            elif event.type == pygame.KEYDOWN and (event.key == pygame.K_SPACE):
+                    self.paused_ = not self.paused_
             # Return the event if not quitting
             else:
                 pygame.event.post(event)

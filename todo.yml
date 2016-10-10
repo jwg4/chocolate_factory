@@ -2,7 +2,6 @@ coding:
     - animated sprites
     - truck
     - lives
-    - pause button
 cleanup:
     - make sure that assets only need to be loaded once
 drawing:
