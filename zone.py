@@ -1,6 +1,6 @@
 import random
 
-from chocolate import Bar
+from chocolate import Bar, Egg
 from dimensions import WINDOW_HEIGHT, WINDOW_WIDTH, WINDOW_X_MID
 from dimensions import CONVEYOR_LENGTH, CHOC_HEIGHT, CHOC_WIDTH
 from dimensions import START_CONVEYOR_LENGTH, START_CONVEYOR_HEIGHT
@@ -94,15 +94,21 @@ class StartMachine(Zone):
 
     def __init__(self, handoff):
         super(StartMachine, self).__init__(WINDOW_WIDTH, START_CONVEYOR_HEIGHT, handoff)
-        self.add_choc(Bar())
+        self.add_choc(self.choose_choc())
         self.countdown = 150
 
     def update(self):
         if not self.chocolates:
-            self.add_choc(Bar())
+            self.add_choc(self.choose_choc())
             self.countdown = 100 * random.randint(0, 12) + START_CONVEYOR_LENGTH + CHOC_WIDTH
         elif self.countdown == 0:
             self.remove_choc()
         else:
             self.countdown = self.countdown - 1
             self.chocolates[0].set_position(WINDOW_WIDTH - START_CONVEYOR_LENGTH + self.countdown, START_CONVEYOR_HEIGHT)
+
+    def choose_choc(self):
+        if random.randint(0, 3) == 1:
+            return Egg()
+        else:
+            return Bar()
