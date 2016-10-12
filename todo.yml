@@ -3,6 +3,7 @@ coding:
     - stuff falling into the truck
     - truck
     - lives
+    - workers passing
 cleanup:
     - make sure that assets only need to be loaded once
 drawing:
