@@ -1,5 +1,6 @@
 coding:
     - animated sprites
+    - stuff falling into the truck
     - truck
     - lives
 cleanup:
@@ -10,12 +11,15 @@ drawing:
     - several frames for conveyor unit
     - truck
     - splash screen
+    - machines
 layout:
     - make wider
     - conveyor for first coming out
 design:
     - telling off
     - crash
+    - platforms for characters to stand on
+    - background
 sounds:
     - intro
     - truck
