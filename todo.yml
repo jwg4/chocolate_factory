@@ -12,6 +12,7 @@ drawing:
     - truck
     - splash screen
     - machines
+    - characters
 layout:
     - make wider
     - conveyor for first coming out
