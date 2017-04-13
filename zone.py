@@ -93,19 +93,27 @@ class StartMachine(Zone):
     countdown = 0
 
     def __init__(self, handoff):
-        super(StartMachine, self).__init__(WINDOW_WIDTH, START_CONVEYOR_HEIGHT, handoff)
+        super(StartMachine, self).__init__(
+            WINDOW_WIDTH,
+            START_CONVEYOR_HEIGHT,
+            handoff
+        )
         self.add_choc(self.choose_choc())
         self.countdown = 150
 
     def update(self):
         if not self.chocolates:
             self.add_choc(self.choose_choc())
-            self.countdown = 100 * random.randint(0, 12) + START_CONVEYOR_LENGTH + CHOC_WIDTH
+            self.countdown = (100 * random.randint(0, 12) +
+                              START_CONVEYOR_LENGTH + CHOC_WIDTH)
         elif self.countdown == 0:
             self.remove_choc()
         else:
             self.countdown = self.countdown - 1
-            self.chocolates[0].set_position(WINDOW_WIDTH - START_CONVEYOR_LENGTH + self.countdown, START_CONVEYOR_HEIGHT)
+            self.chocolates[0].set_position(
+                WINDOW_WIDTH - START_CONVEYOR_LENGTH + self.countdown,
+                START_CONVEYOR_HEIGHT
+            )
 
     def choose_choc(self):
         if random.randint(0, 3) == 1:
